@@ -1,4 +1,4 @@
-from database import add_entry, get_entries
+from database import add_entry, get_entries, create_table, drop_table
 
 
 def prompt_entry():
@@ -9,7 +9,9 @@ def prompt_entry():
 
 def view_entries(entries):
   for entry in entries:
-    print(f"{entry['entry_date']}:\n{entry['entry_body']}")
+    print(f"{entry[1]}:\n{entry[0]}\n")
+    # this will work if we use `connection.row_factory = sqlite3.Row`
+    # print(f"{entry['entry_date']}:\n{entry['entry_body']}")
 
 
 welcome_msg = "Witaj w Dzienniku Developera!"
@@ -23,6 +25,8 @@ Wybierz jedną z poniższych akcji:
 
 menu_action_prompt = "Twój wybór: "
 
+# drop_table()
+create_table()
 print(welcome_msg)
 print(menu)
 
